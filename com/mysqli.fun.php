@@ -1,4 +1,6 @@
 <?php 
-	echo "hello,word!";
+	$str = "hello,word!";
+	echo strlen($str);
+
 
 ?>
