@@ -1,16 +1,28 @@
+<?php 
+	require_once 'configs/config.php';
+	require_once 'com/connect.php';
+	require_once 'com/comment.class.php';
+	$sql = "select username,email,url,content,pubTime,face from comments";
+	$result = $mysqli->query($sql);
+	if($result){
+		while ($rows = $result->fetch_assoc()) {
+			$comments[] = new Comment($rows);
+		}
+	}
+
+?>
 <!DOCTYPE html>
 <html>
 <head>
-	<meta http-equiv="Content-Type" content="text/html"; charset="utf-8"/>
 	<title>评论</title>
 	<link rel="stylesheet" type="text/css" href="style/style.css" />
-	<script type="text/javascript" src="script/jquery.min.js"></script>
-	<script type="text/javascript" src="script/comment.js"></script>
-
+	<script type="text/javascript" src="script/jquery-3.2.1.js"></script>
+	
 </head>
 <body>
 	<h1>无刷新评论</h1>
 	<div id="main">
+		
 		<div id="addCommentContainer">
 			<form id="addCommentForm" method="post" action="">
 				<div>
@@ -34,6 +46,12 @@
 				</div>
 			</form>
 		</div>
+		<?php 
+			foreach ($comments as $value) {
+				echo $value->output();
+			}
+		?>
 	</div>
 </body>
+<script type="text/javascript" src="script/comment.js"></script>
 </html>

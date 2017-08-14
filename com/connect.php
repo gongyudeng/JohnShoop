@@ -5,4 +5,4 @@ if ($mysqli->connect_errno){
 }else{
 	$mysqli->set_charset(DB_CHARSET);
 }
-?>
+?> 
