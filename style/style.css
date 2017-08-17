@@ -17,7 +17,7 @@ body{
 	/* Syling the comments and the comment form container */
 	
 	padding:12px;
-	width:460px;
+	width:430px;
 	position:relative;
 	background-color:#fcfcfc;
 	border:1px solid white;
@@ -41,7 +41,7 @@ body{
 	left:-70px;
 	position:absolute;
 	width:50px;
-	background:url('img/1.jpg') no-repeat #fcfcfc;
+	background:url('../img/1.jpg') no-repeat #fcfcfc;
 	
 	margin-top:-25px;
 	top:50%;

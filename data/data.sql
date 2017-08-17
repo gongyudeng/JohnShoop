@@ -5,6 +5,6 @@ create table if not exists comments(
 	email varchar(50) not null unique,
 	url varchar(255),
 	content text not null,
-	pubTime date,
+	pubTime datetime,
 	face tinyint not null
 );

@@ -16,7 +16,7 @@ $(document).ready(function(){
 			$('#submit').val('发布评论');
 			
 			if(msg.status){
-				$(msg.html).hide().insertBefore('#addCommentContainer').slideDown();
+				$(msg.html).hide().insertAfter('#addCommentContainer').slideDown();
 				$('#content').val('');
 			}
 			else {

@@ -2,9 +2,9 @@
 	require_once 'configs/config.php';
 	require_once 'com/connect.php';
 	require_once 'com/comment.class.php';
-	$sql = "select username,email,url,content,pubTime,face from comments";
+	$sql = "select username,email,url,content,pubTime,face from comments order by pubTime desc";
 	$result = $mysqli->query($sql);
-	if($result){
+	if($result && $result->num_rows>0){
 		while ($rows = $result->fetch_assoc()) {
 			$comments[] = new Comment($rows);
 		}
@@ -17,12 +17,11 @@
 	<title>评论</title>
 	<link rel="stylesheet" type="text/css" href="style/style.css" />
 	<script type="text/javascript" src="script/jquery-3.2.1.js"></script>
-	
+	<script type="text/javascript" src="script/comment.js"></script>
 </head>
 <body>
 	<h1>无刷新评论</h1>
-	<div id="main">
-		
+	<div id="main">		
 		<div id="addCommentContainer">
 			<form id="addCommentForm" method="post" action="">
 				<div>
@@ -30,7 +29,7 @@
 					<input type="text" name="username" id="username" required="required" placeholder="请输入您的昵称" />
 					<label for="face">选择头像</label>
 					<div id="face">
-						<input type="radio" name="face" checked="checked" value="1"/><img src="img/1.jpg" alt="" width="60" height="50" />&nbsp;&nbsp;&nbsp;
+						<input type="radio" name="face" checked="checked" value="1"/><img src="img/1.jpg" alt="" width="50" height="50" />&nbsp;&nbsp;&nbsp;
 						<input type="radio" name="face"  value="2"/><img src="img/2.jpg" alt="" width="60" height="50" />&nbsp;&nbsp;&nbsp;
 						<input type="radio" name="face"  value="3"/><img src="img/3.jpg" alt="" width="60" height="50" />&nbsp;&nbsp;&nbsp;
 						<input type="radio" name="face"  value="3"/><img src="img/4.jpg" alt="" width="60" height="50" />&nbsp;&nbsp;&nbsp;
@@ -53,5 +52,4 @@
 		?>
 	</div>
 </body>
-<script type="text/javascript" src="script/comment.js"></script>
 </html>
