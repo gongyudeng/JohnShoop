@@ -16,12 +16,12 @@ $(document).ready(function(){
 			$('#submit').val('发布评论');
 			
 			if(msg.status){
-				$(msg.html).hide().insertAfter('#addCommentContainer').slideDown();
+				$(msg.html).insertAfter('#addCommentContainer');
 				$('#content').val('');
 			}
 			else {
 				$.each(msg.errors,function(k,v){
-					$('label[for='+k+']').append('<span class="error">'+v+'</span>');
+					$('label[for='+k+']').append('&nbsp;<span style="color:red">'+v+'</span>');
 				});
 			}
 		},'json');

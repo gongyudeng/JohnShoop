@@ -25,9 +25,9 @@
 		<div id="addCommentContainer">
 			<form id="addCommentForm" method="post" action="">
 				<div>
-					<label for="username">昵称</label>
+					<label for="username">昵称</label>&nbsp;<span style="color: red">*</span>
 					<input type="text" name="username" id="username" required="required" placeholder="请输入您的昵称" />
-					<label for="face">选择头像</label>
+					<label for="face">选择头像</label>&nbsp;<span style="color: red">*</span>
 					<div id="face">
 						<input type="radio" name="face" checked="checked" value="1"/><img src="img/1.jpg" alt="" width="50" height="50" />&nbsp;&nbsp;&nbsp;
 						<input type="radio" name="face"  value="2"/><img src="img/2.jpg" alt="" width="60" height="50" />&nbsp;&nbsp;&nbsp;
@@ -35,11 +35,11 @@
 						<input type="radio" name="face"  value="3"/><img src="img/4.jpg" alt="" width="60" height="50" />&nbsp;&nbsp;&nbsp;
 						<input type="radio" name="face"  value="4"/><img src="img/5.jpg" alt="" width="60" height="50" />&nbsp;&nbsp;&nbsp;
 					</div>
-					<label for="email">邮箱</label>
+					<label for="email">邮箱</label>&nbsp;<span style="color: red">*</span>
 					<input type="email" name="email" id="email" required="required" placeholder="请输入合法邮箱" />
 					<label for="url">个人博客</label>
 					<input type="url" name="url" id="url"/>
-					<label for="content">评论内容</label>
+					<label for="content">评论内容</label>&nbsp;<span style="color: red">*</span>
 					<textarea name="content" id="content" cols="20" rows="5" required="required" placeholder="请输入您的评论"></textarea>
 					<input type="submit" id="submit" value="发布评论" />
 				</div>

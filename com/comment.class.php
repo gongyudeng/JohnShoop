@@ -14,7 +14,7 @@ class Comment{
 			$errors['email']='请输入合法邮箱';
 		}
 		if(!($data['url']=filter_input(INPUT_POST,'url',FILTER_VALIDATE_URL))){
-			$url='';
+			$errors['url']='个人博客地址不合法';
 		}
 		if(!($data['content']=filter_input(INPUT_POST,'content',FILTER_CALLBACK,array('options'=>'Comment::validate_str')))){
 			$errors['content']='请输入合法内容';
@@ -31,12 +31,15 @@ class Comment{
 		if(!($data['face']=filter_input(INPUT_POST,'face',FILTER_VALIDATE_INT,$options))){
 			$errors['face']='请选择合法头像';
 		}
+		
+
 		if(!empty($errors)){
 			$arr=$errors;
-			return false;
+			 return false;
+		}else{
+			$arr=$data;
+			$arr['email']=strtolower(trim($arr['email']));
 		}
-		$arr=$data;
-		$arr['email']=strtolower(trim($arr['email']));
 		return true;
 	}
 	

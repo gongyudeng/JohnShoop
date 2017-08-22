@@ -6,6 +6,7 @@ require_once 'com/connect.php';
 require_once 'com/comment.class.php';
 $arr = array();
 $res = Comment::validate($arr);
+//var_dump($res);
 if($res){
 	$sql = "insert into comments(username,email,url,content,pubTime,face) values(?,?,?,?,?,?);";
 	$mysqli_stmt = $mysqli->prepare($sql);
